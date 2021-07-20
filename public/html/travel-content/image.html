@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Image</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-3 text-warning fonts" id="" href="/">OrdinaryTravellers</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item">
+                        <a class="nav-link fonts" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-primary fonts" href="/travells">Travells</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fonts" href="/about">AboutUS!</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a class="nav-link fonts text-warning" href="/admin/login"> <img
+                            src="../../image/admin/adminicon.png" alt="" style="filter:invert(100%);"></a>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    <h1 class="headgalary">Responsive Image Gallery</h1>
+
+    <div id="filterbtn" class="ms-5">
+        <label for="showall" class="text-primary ml-5">Filter</label>
+        <div class="btn btn-warning" name="showall" id="showall">show all</div>
+        <div class="btn btn-warning" id="mountain">
+            mountain
+        </div>
+        <div class="btn btn-warning" id="river">river</div>
+        <div class="btn btn-warning" id="road">road</div>
+        <div class="btn btn-warning" id="valley">valley</div>
+        <div class="btn btn-warning" id="city">city</div>
+        <div class="btn btn-warning" id="beach">Beach</div>
+        <div class="btn btn-warning" id="trees">trees</div>
+    </div>
+
+
+    <hr>
+    <div id="gallery" class="container-fluid">
+
+        <div class="img-responsive">
+            <img src="/uploads/lk.jpg">
+            <span class="imgdetail text-info" id="typename">Mountains in Lachung Sikkim India (Date:January-2021)</span>
+        </div>
+
+
+    </div>
+
+
+
+    <div class="footer">
+        <footer>
+            <h4 class="text-light">&copy; Made With &#x1F496; BY LK </h4>
+        </footer>
+    </div>
+
+
+    <script src="../../js/image.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

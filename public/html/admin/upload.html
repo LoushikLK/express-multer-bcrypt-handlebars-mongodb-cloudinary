@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Admin Upload</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-3 text-warning fonts" id="" href="/">OrdinaryTravellers</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item">
+                        <a class="nav-link active text-primary fonts" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fonts" href="/travells">Travells</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fonts" href="/about">AboutUS!</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a class="nav-link fonts text-warning" href="/admin/login"> <img
+                            src="../../image/admin/adminicon.png" alt="" style="filter:invert(100%);"></a>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="formmain">
+        <form action="/admin/upload" method="post" enctype="multipart/form-data">
+
+            <h1 class=" d-flex text-warning justify-content-center m-5 border border-warning">Upload Files Below</h1> 
+
+            <div class="form-group form-control bg-dark">
+                <label class="text-light" for="inputImage"> Choose Images </label>
+                <input type="file" name="Image" id="inputImage" required />
+            </div>
+            <div class="form-group">
+                <label for="inputType">Type of image</label>
+                <select class="form-controll bg-dark" aria-label="Default select example" id="inputType" name="Type"
+                    required>
+                    <option selected>Select</option>
+                    <option value="Mountains">Mountains</option>
+                    <option value="River">River</option>
+                    <option value="Valley">Valley</option>
+                    <option value="Road">Road</option>
+                    <option value="City">City</option>
+                    <option value="Beach">Beach</option>
+                    <option value="Jungle">Jungle</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="inputDate">Enter Date</label>
+                <input type="date" name="Date" id="inputDate" class="form-controll" required />
+            </div>
+            <div class="form-group">
+                <label for="inputCity">City</label>
+                <input type="text" name="City" id="inputCity" class="form-controll" required />
+            </div>
+            <div class="form-group">
+                <label for="inputState">Enter State</label>
+                <input type="text" name="State" id="inputState" class="form-controll" required />
+            </div>
+            <div class="form-group">
+                <label for="inputCountry">Country</label>
+                <input type="text" name="Country" id="inputCountry" class="form-controll" placeholder="India"
+                    required />
+            </div>
+
+
+            <div class="form-group">
+                <button type="submit">Upload to Database</button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="footer">
+        <footer>
+            <h4 class="text-light">&copy; Made With &#x1F496; BY LK </h4>
+        </footer>
+
+        <script src="../../js/upload.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+</body>
+
+
+</html>

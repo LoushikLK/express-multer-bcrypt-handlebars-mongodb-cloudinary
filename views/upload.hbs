@@ -1,0 +1,71 @@
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+{{>navbar}}
+<div class="formmain">
+    <form action="/admin/upload" method="post" enctype="multipart/form-data">
+
+        <h1 class=" d-flex text-warning justify-content-center m-5 border border-warning">Upload Files Below</h1>
+
+
+        <div class="alert alert-success {{display}} text-center fs-4" id="alert" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                class="bi bi-check2-circle" viewBox="0 0 16 16">
+                <path
+                    d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
+                <path
+                    d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
+            </svg>
+            <strong>Saved!</strong>Your files upload to database successfully <button type="button" id="closebtn"
+                class="btn btn-success ms-2">Close</button>
+
+        </div>
+
+
+        <div class="form-group form-control bg-dark">
+            <label class="text-light" for="inputImage"> Choose Images </label>
+            <input type="file" name="Image" id="inputImage" required />
+        </div>
+        <div class="form-group">
+            <label for="inputType">Type of image</label>
+            <select class="form-controll bg-dark" aria-label="Default select example" id="inputType" name="Type"
+                required>
+                <option selected>Select</option>
+                <option value="Mountains">Mountains</option>
+                <option value="River">River</option>
+                <option value="Valley">Valley</option>
+                <option value="Road">Road</option>
+                <option value="City">City</option>
+                <option value="Beach">Beach</option>
+                <option value="Jungle">Jungle</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="inputDate">Enter Date</label>
+            <input type="date" name="Date" id="inputDate" class="form-controll" required />
+        </div>
+        <div class="form-group">
+            <label for="inputCity">City</label>
+            <input type="text" name="City" id="inputCity" class="form-controll" required />
+        </div>
+        <div class="form-group">
+            <label for="inputState">Enter State</label>
+            <input type="text" name="State" id="inputState" class="form-controll" required />
+        </div>
+        <div class="form-group">
+            <label for="inputCountry">Country</label>
+            <input type="text" name="Country" id="inputCountry" class="form-controll" placeholder="India" required />
+        </div>
+
+
+        <div class="form-group">
+            <button type="submit" id="submit">Upload to Database</button>
+        </div>
+
+
+    </form>
+
+</div>
+{{>footer}}
+<script src="/js/upload.js"></script>

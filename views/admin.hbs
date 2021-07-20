@@ -1,0 +1,51 @@
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <div class="container-fluid">
+        <a class="navbar-brand fs-3 text-warning fonts" id="" href="/">OrdinaryTravellers</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                <li class="nav-item">
+                    <a class="nav-link active text-primary fonts" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fonts" href="/travells">Travells</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fonts" href="/about">AboutUS!</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <a class="nav-link fonts text-warning" href="/admin/login"> <img src="../../image/admin/adminicon.png"
+                        alt="" style="filter:invert(100%);"></a>
+
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="login">
+    <div class="loginmain">
+        <form method="POST" action="/admin/login">
+
+            <div class="adminlogo"></div>
+            <div class="admintitle">Admin Log</div>
+            <div class="datas logindata">
+                <label>EMAIL</label>
+                <input type="text" placeholder="Enter ID" name="username" required />
+                <label>PASSWORD</label>
+                <input type="password" placeholder="Enter Password" name="password" required />
+                <button type="submit">LOGIN</button>
+            </div>
+    </div>
+    </form>
+</div>
+
+{{>footer}}
+
+<script src="/js/login.js"></script>
