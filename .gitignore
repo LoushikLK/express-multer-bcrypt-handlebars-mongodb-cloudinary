@@ -1,5 +1,5 @@
 /node_modules/
 
-#upload directory in public folder
+#upload directory 
 
-/public/uploads/
+/uploads/
