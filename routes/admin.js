@@ -11,7 +11,8 @@ const multer = require('multer');
 const adminData = require('../module/loginadmin')
 const apiData = require('../module/imageapi')
 
-const cloudinary = require('../cloudinary/cloudinary')
+const cloudinary = require('../cloudinary/cloudinary');
+
 
 
 app.use(bodyParser.json());
@@ -32,7 +33,7 @@ router.use(function timeLog(req, res, next) {
 })
 // define the home page route
 router.get('/login', function (req, res) {
-  res.render('admin',{title:'Login'})
+  res.render('admin', { title: 'Login',display:'d-none' })
 })
 
 ///////////////////////////mongoose log in//////////////////////////////////
@@ -46,41 +47,18 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/adminData
     console.log(err);
   })
 
- let dir = path.join(__dirname, '../views')
-router.post('/login', function (req, res) {
+let dir = path.join(__dirname, '../views')
+router.post('/login', auth, function (req, res) {
 
-
-  //for finding data
-  // console.log(req.body);
-
-  adminData.find({ username: req.body.username }
-    , function (err, result) {
-      if (err) {
-        res.send('something wrong')
-        return err;
-      }
-      if (result) {
-
-        // result from database comes in array so grab item using[index]
-        // console.log(result.password);
-
-        bcrypt.compare(req.body.password, result[0].password, function (err, matched) {
-          if (matched) {
-            console.log("matched");
-            res.render('upload',{
-              display:'d-none',
-              title:'Uploads'
-            })
-
-          }
-        });
-
-        // res.status(200).json(result[1])
+        res.render('upload', {
+          display: 'd-none',
+          title: 'Uploads'
+        })
 
 
 
-      }
-    })
+    //   }
+    // })
   // for saving data
   // bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
 
@@ -99,11 +77,63 @@ router.post('/login', function (req, res) {
 
 })
 
+
+///////////////////////////auth middleware//////////////////////////////////////
+
+function auth(req, res, next) {
+
+  adminData.find({ username: req.body.username }
+    , function (err, result) {
+
+      if (err){
+        console.log('error');
+        res.render('admin',{
+          title:'Login',
+          display:'d-block'
+        })
+      }
+      
+      if (result) {
+
+        // result from database comes in array so grab item using[index]
+        // console.log("find result");
+        // console.log(result[0]);
+
+        if(result[0]== undefined){
+          // console.log(req.body.username);
+          res.render('admin',{
+            title:'Login',
+            display:'d-block'
+          })
+          return
+        }
+        if(result[0].username == req.body.username){
+
+          bcrypt.compare(req.body.password, result[0].password, function (err, matched) {
+            if (matched) {
+              console.log("password matched");
+              next()
+            }
+            else{
+              console.log('opps password do not matched')
+              res.render('admin', { title: 'Login',display:'d-block' })
+            }
+          });
+        }
+
+      }
+      
+    })
+    
+
+
+}
+
 /////////////////////////uploading files to db///////////////////////////////////////////////////
 
 let storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './public/uploads')
+    cb(null, '/uploads')
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + '-' + file.originalname)
@@ -140,9 +170,9 @@ router.post('/upload', upload.single('Image'), async (req, res) => {
   })
   console.log(myData);
   myData.save().then(() => {
-    res.status(200).render('upload',{
-      display:'d-block',
-      title:'Uploads'
+    res.status(200).render('upload', {
+      display: 'd-block',
+      title: 'Uploads'
 
     })
   }).catch(() => {
